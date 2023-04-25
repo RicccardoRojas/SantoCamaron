@@ -2,8 +2,9 @@
 {
     public class Almacen
     {
-        public Almacen(string nombre, string tipo, string proveedor, int cantidad, string fecha)
+        public Almacen(int iD_Insumo, string nombre, string tipo, string proveedor, int cantidad, string fecha)
         {
+            ID_Insumo = iD_Insumo;
             Nombre = nombre;
             Tipo = tipo;
             Proveedor = proveedor;
@@ -11,6 +12,7 @@
             Fecha = fecha;
         }
 
+        public int ID_Insumo { get; set; }
         public string Nombre { get; set; }
         public string Tipo { get; set; }
         public string Proveedor { get; set; }
