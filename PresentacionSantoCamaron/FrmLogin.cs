@@ -50,5 +50,11 @@ namespace PresentacionSantoCamaron
         {
             Close();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            FrmMesa FM = new FrmMesa();
+            FM.Show();
+        }
     }
 }

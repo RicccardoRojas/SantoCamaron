@@ -36,7 +36,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.txtContraseñaTRA = new System.Windows.Forms.TextBox();
             this.txtUsuarioTRA = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -93,7 +93,7 @@
             this.PaSesion.Controls.Add(this.label8);
             this.PaSesion.Controls.Add(this.label3);
             this.PaSesion.Controls.Add(this.label2);
-            this.PaSesion.Controls.Add(this.button1);
+            this.PaSesion.Controls.Add(this.btnLogin);
             this.PaSesion.Controls.Add(this.txtContraseñaTRA);
             this.PaSesion.Controls.Add(this.txtUsuarioTRA);
             this.PaSesion.Controls.Add(this.label1);
@@ -133,14 +133,17 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Usuario:";
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Location = new System.Drawing.Point(260, 411);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(197)))), ((int)(((byte)(19)))));
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(260, 411);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(107, 42);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtContraseñaTRA
             // 
@@ -324,7 +327,7 @@
         private System.Windows.Forms.Panel PaSesion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtContraseñaTRA;
         private System.Windows.Forms.TextBox txtUsuarioTRA;
         private System.Windows.Forms.PictureBox PicLogin;
