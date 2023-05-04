@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPedidos = new System.Windows.Forms.Button();
             this.lblReloj = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -37,20 +38,20 @@
             this.LblFecha = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LblPantalla = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNOMesa = new System.Windows.Forms.Label();
             this.PaPedido = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.PaToma = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblSubtotal = new System.Windows.Forms.Label();
+            this.lblPreci = new System.Windows.Forms.Label();
+            this.lblCanti = new System.Windows.Forms.Label();
+            this.lblPla = new System.Windows.Forms.Label();
+            this.lblNUMPe = new System.Windows.Forms.Label();
             this.lblMesa = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblNOPedido = new System.Windows.Forms.Label();
+            this.lblNombreMe = new System.Windows.Forms.Label();
             this.btnMesa20 = new System.Windows.Forms.Button();
             this.btnMesa18 = new System.Windows.Forms.Button();
             this.btnMesa19 = new System.Windows.Forms.Button();
@@ -73,12 +74,15 @@
             this.btnMesa1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.TReloj = new System.Windows.Forms.Timer(this.components);
-            this.btnPedidos = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.dtgPedidos = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.lblBuscar = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.PaPedido.SuspendLayout();
+            this.PaToma.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,6 +99,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(610, 1080);
             this.panel1.TabIndex = 0;
+            // 
+            // btnPedidos
+            // 
+            this.btnPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(72)))), ((int)(((byte)(30)))));
+            this.btnPedidos.Location = new System.Drawing.Point(213, 867);
+            this.btnPedidos.Name = "btnPedidos";
+            this.btnPedidos.Size = new System.Drawing.Size(155, 45);
+            this.btnPedidos.TabIndex = 5;
+            this.btnPedidos.Text = "Pedidos";
+            this.btnPedidos.UseVisualStyleBackColor = false;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // lblReloj
             // 
@@ -119,7 +134,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(94, 52);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(439, 333);
@@ -165,35 +180,37 @@
             this.LblPantalla.TabIndex = 0;
             this.LblPantalla.Text = "B I E N V E N I D O";
             // 
-            // label1
+            // lblNOMesa
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(115, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "No. Mesa:";
+            this.lblNOMesa.AutoSize = true;
+            this.lblNOMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNOMesa.Location = new System.Drawing.Point(120, 62);
+            this.lblNOMesa.Name = "lblNOMesa";
+            this.lblNOMesa.Size = new System.Drawing.Size(122, 29);
+            this.lblNOMesa.TabIndex = 3;
+            this.lblNOMesa.Text = "No. Mesa:";
             // 
             // PaPedido
             // 
             this.PaPedido.BackColor = System.Drawing.Color.White;
+            this.PaPedido.Controls.Add(this.lblBuscar);
+            this.PaPedido.Controls.Add(this.txtBuscar);
             this.PaPedido.Controls.Add(this.btnRegresar);
             this.PaPedido.Controls.Add(this.btnAgregar);
             this.PaPedido.Controls.Add(this.PaToma);
-            this.PaPedido.Controls.Add(this.label12);
-            this.PaPedido.Controls.Add(this.label11);
-            this.PaPedido.Controls.Add(this.label10);
-            this.PaPedido.Controls.Add(this.label2);
-            this.PaPedido.Controls.Add(this.label9);
+            this.PaPedido.Controls.Add(this.lblSubtotal);
+            this.PaPedido.Controls.Add(this.lblPreci);
+            this.PaPedido.Controls.Add(this.lblCanti);
+            this.PaPedido.Controls.Add(this.lblPla);
+            this.PaPedido.Controls.Add(this.lblNUMPe);
             this.PaPedido.Controls.Add(this.lblMesa);
-            this.PaPedido.Controls.Add(this.label7);
-            this.PaPedido.Controls.Add(this.label6);
-            this.PaPedido.Controls.Add(this.label5);
-            this.PaPedido.Controls.Add(this.label1);
-            this.PaPedido.Location = new System.Drawing.Point(1922, 177);
+            this.PaPedido.Controls.Add(this.lblNombre);
+            this.PaPedido.Controls.Add(this.lblNOPedido);
+            this.PaPedido.Controls.Add(this.lblNombreMe);
+            this.PaPedido.Controls.Add(this.lblNOMesa);
+            this.PaPedido.Location = new System.Drawing.Point(612, 162);
             this.PaPedido.Name = "PaPedido";
-            this.PaPedido.Size = new System.Drawing.Size(1302, 913);
+            this.PaPedido.Size = new System.Drawing.Size(1302, 898);
             this.PaPedido.TabIndex = 2;
             // 
             // btnRegresar
@@ -219,101 +236,102 @@
             // PaToma
             // 
             this.PaToma.BackColor = System.Drawing.Color.DarkGray;
+            this.PaToma.Controls.Add(this.dtgPedidos);
             this.PaToma.Location = new System.Drawing.Point(153, 298);
             this.PaToma.Name = "PaToma";
             this.PaToma.Size = new System.Drawing.Size(1011, 584);
             this.PaToma.TabIndex = 13;
             this.PaToma.Paint += new System.Windows.Forms.PaintEventHandler(this.PaToma_Paint);
             // 
-            // label12
+            // lblSubtotal
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1009, 220);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(107, 29);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Subtotal:";
+            this.lblSubtotal.AutoSize = true;
+            this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtotal.Location = new System.Drawing.Point(1009, 220);
+            this.lblSubtotal.Name = "lblSubtotal";
+            this.lblSubtotal.Size = new System.Drawing.Size(107, 29);
+            this.lblSubtotal.TabIndex = 12;
+            this.lblSubtotal.Text = "Subtotal:";
             // 
-            // label11
+            // lblPreci
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(770, 220);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 29);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Precio:";
+            this.lblPreci.AutoSize = true;
+            this.lblPreci.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreci.Location = new System.Drawing.Point(770, 220);
+            this.lblPreci.Name = "lblPreci";
+            this.lblPreci.Size = new System.Drawing.Size(89, 29);
+            this.lblPreci.TabIndex = 11;
+            this.lblPreci.Text = "Precio:";
             // 
-            // label10
+            // lblCanti
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(503, 220);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(115, 29);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Cantidad:";
+            this.lblCanti.AutoSize = true;
+            this.lblCanti.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCanti.Location = new System.Drawing.Point(503, 220);
+            this.lblCanti.Name = "lblCanti";
+            this.lblCanti.Size = new System.Drawing.Size(115, 29);
+            this.lblCanti.TabIndex = 10;
+            this.lblCanti.Text = "Cantidad:";
             // 
-            // label2
+            // lblPla
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(176, 220);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 29);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Platillo/Bebida";
+            this.lblPla.AutoSize = true;
+            this.lblPla.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPla.Location = new System.Drawing.Point(176, 220);
+            this.lblPla.Name = "lblPla";
+            this.lblPla.Size = new System.Drawing.Size(170, 29);
+            this.lblPla.TabIndex = 9;
+            this.lblPla.Text = "Platillo/Bebida";
             // 
-            // label9
+            // lblNUMPe
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1070, 116);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 29);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "XXX";
+            this.lblNUMPe.AutoSize = true;
+            this.lblNUMPe.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNUMPe.Location = new System.Drawing.Point(1070, 116);
+            this.lblNUMPe.Name = "lblNUMPe";
+            this.lblNUMPe.Size = new System.Drawing.Size(64, 29);
+            this.lblNUMPe.TabIndex = 8;
+            this.lblNUMPe.Text = "XXX";
             // 
             // lblMesa
             // 
             this.lblMesa.AutoSize = true;
             this.lblMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMesa.Location = new System.Drawing.Point(148, 102);
+            this.lblMesa.Location = new System.Drawing.Point(148, 116);
             this.lblMesa.Name = "lblMesa";
             this.lblMesa.Size = new System.Drawing.Size(64, 29);
             this.lblMesa.TabIndex = 7;
             this.lblMesa.Text = "XXX";
             // 
-            // label7
+            // lblNombre
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(634, 116);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 29);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "XXX";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(634, 116);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(64, 29);
+            this.lblNombre.TabIndex = 6;
+            this.lblNombre.Text = "XXX";
             // 
-            // label6
+            // lblNOPedido
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1034, 62);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(141, 29);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "No. Pedido:";
+            this.lblNOPedido.AutoSize = true;
+            this.lblNOPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNOPedido.Location = new System.Drawing.Point(1034, 62);
+            this.lblNOPedido.Name = "lblNOPedido";
+            this.lblNOPedido.Size = new System.Drawing.Size(141, 29);
+            this.lblNOPedido.TabIndex = 5;
+            this.lblNOPedido.Text = "No. Pedido:";
             // 
-            // label5
+            // lblNombreMe
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(560, 62);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(235, 29);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Nombre del Mesero:";
+            this.lblNombreMe.AutoSize = true;
+            this.lblNombreMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreMe.Location = new System.Drawing.Point(560, 62);
+            this.lblNombreMe.Name = "lblNombreMe";
+            this.lblNombreMe.Size = new System.Drawing.Size(235, 29);
+            this.lblNombreMe.TabIndex = 4;
+            this.lblNombreMe.Text = "Nombre del Mesero:";
             // 
             // btnMesa20
             // 
@@ -551,22 +569,30 @@
             this.TReloj.Interval = 1000;
             this.TReloj.Tick += new System.EventHandler(this.TReloj_Tick);
             // 
-            // btnPedidos
+            // dtgPedidos
             // 
-            this.btnPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(72)))), ((int)(((byte)(30)))));
-            this.btnPedidos.Location = new System.Drawing.Point(213, 867);
-            this.btnPedidos.Name = "btnPedidos";
-            this.btnPedidos.Size = new System.Drawing.Size(155, 45);
-            this.btnPedidos.TabIndex = 5;
-            this.btnPedidos.Text = "Pedidos";
-            this.btnPedidos.UseVisualStyleBackColor = false;
+            this.dtgPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgPedidos.Location = new System.Drawing.Point(0, 0);
+            this.dtgPedidos.Name = "dtgPedidos";
+            this.dtgPedidos.Size = new System.Drawing.Size(1011, 584);
+            this.dtgPedidos.TabIndex = 16;
             // 
-            // panel3
+            // txtBuscar
             // 
-            this.panel3.Location = new System.Drawing.Point(704, 208);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1248, 668);
-            this.panel3.TabIndex = 46;
+            this.txtBuscar.Location = new System.Drawing.Point(311, 179);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(852, 31);
+            this.txtBuscar.TabIndex = 17;
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.Location = new System.Drawing.Point(176, 179);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(93, 29);
+            this.lblBuscar.TabIndex = 18;
+            this.lblBuscar.Text = "Buscar:";
             // 
             // FrmMesa
             // 
@@ -574,7 +600,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1920, 1061);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.PaPedido);
             this.Controls.Add(this.btnMesa20);
             this.Controls.Add(this.btnMesa18);
@@ -612,6 +637,8 @@
             this.panel2.PerformLayout();
             this.PaPedido.ResumeLayout(false);
             this.PaPedido.PerformLayout();
+            this.PaToma.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPedidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -627,13 +654,13 @@
         private System.Windows.Forms.Label LblPantalla;
         private System.Windows.Forms.Label lblReloj;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNOMesa;
         private System.Windows.Forms.Panel PaPedido;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblNUMPe;
         private System.Windows.Forms.Label lblMesa;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblNOPedido;
+        private System.Windows.Forms.Label lblNombreMe;
         private System.Windows.Forms.Button btnMesa20;
         private System.Windows.Forms.Button btnMesa18;
         private System.Windows.Forms.Button btnMesa19;
@@ -657,13 +684,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel PaToma;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSubtotal;
+        private System.Windows.Forms.Label lblPreci;
+        private System.Windows.Forms.Label lblCanti;
+        private System.Windows.Forms.Label lblPla;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Timer TReloj;
         private System.Windows.Forms.Button btnPedidos;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.DataGridView dtgPedidos;
     }
 }
